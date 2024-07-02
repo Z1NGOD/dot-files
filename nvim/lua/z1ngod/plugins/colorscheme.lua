@@ -5,18 +5,9 @@ return {
   config = function()
     require("catppuccin").setup({
       flavour = "frappe", -- latte, frappe, macchiato, mocha
-      background = { -- :h background
-        light = "latte",
-        dark = "mocha",
-      },
-      transparent_background = false, -- disables setting the background color.
+      transparent_background = true, -- disables setting the background color.
       show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
       term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
-      dim_inactive = {
-        enabled = false, -- dims the background color of inactive window
-        shade = "dark",
-        percentage = 0.15, -- percentage of the shade to apply to the inactive window
-      },
       no_italic = false, -- Force no italic
       no_bold = false, -- Force no bold
       no_underline = false, -- Force no underline
@@ -43,7 +34,7 @@ return {
         gitsigns = true,
         nvimtree = true,
         treesitter = true,
-        notify = false,
+        notify = true,
         mini = {
           enabled = true,
           indentscope_color = "",
@@ -54,5 +45,7 @@ return {
 
     -- setup must be called before loading
     vim.cmd.colorscheme("catppuccin")
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
   end,
 }
