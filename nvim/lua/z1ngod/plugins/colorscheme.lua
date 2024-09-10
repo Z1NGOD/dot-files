@@ -36,7 +36,7 @@ return {
         treesitter = true,
         notify = true,
         mini = {
-          enabled = true,
+          enabled = false,
           indentscope_color = "",
         },
         mason = true,
