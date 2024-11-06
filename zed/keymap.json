@@ -1,0 +1,93 @@
+[
+  {
+    "context": "VimControl",
+    "bindings": {
+      "ctrl-h": null,
+      "ctrl-l": null,
+      "ctrl-f": "vim::ScrollDown",
+      "ctrl-b": "vim::ScrollUp",
+      "ctrl-a": ["workspace::SendKeystrokes", "v cmd-a"],
+      "ctrl-d": ["workspace::SendKeystrokes", "ctrl-f z z"],
+      "ctrl-u": ["workspace::SendKeystrokes", "ctrl-b z z"],
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrev"
+    }
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      //searches
+      "space f f": "file_finder::Toggle",
+      "space f b": "tab_switcher::Toggle",
+      "space f s": "pane::DeploySearch",
+      //spaces
+      "space e e": "workspace::ToggleLeftDock",
+      //actions
+      "space c a": "editor::ToggleCodeActions",
+      "space r n": "editor::Rename",
+      "space l f": "editor::Format",
+      "space x x": "diagnostics::Deploy",
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      //splits
+      "cmd-|": "pane::SplitDown",
+      "cmd-enter": "workspace::ToggleZoom",
+      //hints
+      "space h h": "editor::ToggleInlayHints",
+      "space h t": "editor::ToggleGitBlameInline",
+      "space h T": "editor::ToggleGitBlame"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      // "shift-s": ["vim::PushOperator", { "AddSurrounds": {} }]
+      "shift-k": "editor::MoveLineUp",
+      "shift-j": "editor::MoveLineDown"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrev"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "ctrl-p": "editor::ContextMenuPrev",
+      "ctrl-n": "editor::ContextMenuNext"
+    }
+  },
+  {
+    "context": "TabSwitcher",
+    "bindings": {
+      "ctrl-k": "menu::SelectPrev",
+      "ctrl-j": "menu::SelectNext"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "space e c": "project_panel::CollapseAllEntries",
+      "space": null,
+      "e": null,
+      "space e": null
+    }
+  }
+]
