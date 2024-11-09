@@ -17,14 +17,14 @@ return {
         indent_markers = {
           enable = true,
         },
-        icons = {
-          glyphs = {
-            folder = {
-              arrow_closed = "􁒢",
-              arrow_open = "􁒥",
-            },
-          },
-        },
+        -- icons = {
+        --   glyphs = {
+        --     folder = {
+        --       arrow_closed = "􁒤",
+        --       arrow_open = "􁒥",
+        --     },
+        --   },
+        -- },
       },
       actions = {
         open_file = {
