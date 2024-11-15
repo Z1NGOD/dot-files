@@ -11,7 +11,7 @@ return {
       disable_netrw = true,
       hijack_cursor = true,
       view = {
-        signcolumn = "no",
+        signcolumn = "yes",
       },
       renderer = {
         indent_markers = {
