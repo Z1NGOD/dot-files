@@ -22,6 +22,9 @@ return {
         inc_rename = false,
         lsp_doc_border = true,
       },
+      hover = {
+        silent = true,
+      },
       routes = {
         {
           filter = {
@@ -38,6 +41,13 @@ return {
           },
           opts = { skip = true },
         },
+
+        -- {
+        --   filter = {
+        --     any = "NvimTree",
+        --   },
+        --   opts = { skip = true },
+        -- },
 
         {
           filter = {
