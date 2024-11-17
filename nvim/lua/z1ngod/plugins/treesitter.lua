@@ -20,7 +20,7 @@ return {
       ensure_installed = {},
       modules = {},
       ignore_install = {},
-      sync_install = true,
+      sync_install = false,
     })
   end,
 }

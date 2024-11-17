@@ -51,9 +51,7 @@ return {
     end
     mason_lspconfig.setup_handlers({
       function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
+        lspconfig[server_name].setup({ capabilities = capabilities })
       end,
       ["emmet_ls"] = function()
         lspconfig["emmet_ls"].setup({
