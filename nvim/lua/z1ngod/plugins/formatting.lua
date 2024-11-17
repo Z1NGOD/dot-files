@@ -3,7 +3,6 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
-
     conform.setup({
       formatters_by_ft = {
         javascript = { "prettierd" },
@@ -11,6 +10,7 @@ return {
         javascriptreact = { "prettierd" },
         typescriptreact = { "prettierd" },
         svelte = { "prettierd" },
+        vue = { "prettierd" },
         css = { "prettierd" },
         html = { "prettierd" },
         json = { "prettierd" },
@@ -26,7 +26,6 @@ return {
         timeout_ms = 10000,
       },
     })
-
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()
       conform.format({
         lsp_fallback = true,

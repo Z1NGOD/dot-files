@@ -12,17 +12,13 @@ return {
     local actions = require("telescope.actions")
     local transform_mod = require("telescope.actions.mt").transform_mod
     local builtin = require("telescope.builtin")
-
     local trouble = require("trouble")
     local trouble_telescope = require("trouble.sources.telescope")
-
-    -- or create your custom action
     local custom_actions = transform_mod({
       open_trouble_qflist = function(prompt_bufnr)
         trouble.toggle("quickfix")
       end,
     })
-
     telescope.setup({
       defaults = {
         path_display = { "smart" },
@@ -36,12 +32,8 @@ return {
         },
       },
     })
-
     telescope.load_extension("fzf")
-
-    -- set keymaps
-    local keymap = vim.keymap -- for conciseness
-
+    local keymap = vim.keymap
     keymap.set(
       "n",
       "<leader>ff",
