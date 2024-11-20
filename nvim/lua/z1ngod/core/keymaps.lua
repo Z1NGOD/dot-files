@@ -14,3 +14,4 @@ keymap.set("n", "<C-a>", "ggVG", { desc = "Selecting everything in current buffe
 keymap.set("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "Opens Lazy UI" })
 keymap.set("n", "<leader>lm", "<cmd>Mason<CR>", { desc = "Opens Mason UI" })
 keymap.set("v", "K", ":'<,'>m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = "Move line up" })
+keymap.set("v", "J", ":'<,'>m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = "Move line down" })
