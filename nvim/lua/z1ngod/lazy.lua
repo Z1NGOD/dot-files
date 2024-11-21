@@ -11,15 +11,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "z1ngod.plugins" }, { import = "z1ngod.plugins.lsp" } }, {
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
-  ui = {
-    border = "rounded",
-  },
-})
+require("lazy").setup(
+  { { import = "z1ngod.plugins" }, { import = "z1ngod.plugins.lsp" }, { import = "z1ngod.plugins.colorshcemes" } },
+  {
+    checker = {
+      enabled = true,
+      notify = false,
+    },
+    change_detection = {
+      notify = false,
+    },
+    ui = {
+      border = "rounded",
+    },
+  }
+)

@@ -5,20 +5,15 @@ return {
   config = function()
     local treesitter = require("nvim-treesitter.configs")
     treesitter.setup({
+      sync_install = false,
+      ensure_installed = {},
+      ignore_install = {},
+      modules = {},
       highlight = {
         enable = true,
       },
       indent = { enable = true },
       auto_install = true,
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
     })
   end,
 }
