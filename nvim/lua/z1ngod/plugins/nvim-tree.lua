@@ -16,6 +16,9 @@ return {
         },
         root_folder_modifier = false,
       },
+      view = {
+        width = 35,
+      },
       actions = {
         open_file = {
           window_picker = {
