@@ -17,3 +17,31 @@ keymap.set("v", "K", ":'<,'>m '<-2<CR>gv=gv", { noremap = true, silent = true, d
 keymap.set("v", "J", ":'<,'>m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = "Move line down" })
 keymap.set("i", "<C-h>", "<Left>", { noremap = true, silent = true, desc = "Move left inside insert mode" })
 keymap.set("i", "<C-l>", "<Right>", { noremap = true, silent = true, desc = "Move right inside insert mode" })
+keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true, desc = "Move to left split" })
+keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true, desc = "Move to bottom split" })
+keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true, desc = "Move to top split" })
+keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true, desc = "Move to right split" })
+keymap.set(
+  "t",
+  "<C-h>",
+  "<cmd>wincmd h<CR>",
+  { noremap = true, silent = true, desc = "Move to left split in terminal" }
+)
+keymap.set(
+  "t",
+  "<C-j>",
+  "<cmd>wincmd j<CR>",
+  { noremap = true, silent = true, desc = "Move to bottom split in terminal" }
+)
+keymap.set("t", "<C-k>", "<cmd>wincmd k<CR>", { noremap = true, silent = true, desc = "Move to top split in terminal" })
+keymap.set(
+  "t",
+  "<C-l>",
+  "<cmd>wincmd l<CR>",
+  { noremap = true, silent = true, desc = "Move to right split in terminal" }
+)
+keymap.set("v", "<C-h>", "<gv", { noremap = true, silent = true, desc = "Move line to left" })
+keymap.set("v", "<C-l>", ">gv", { noremap = true, silent = true, desc = "Move line to right" })
+keymap.set("n", "<leader>bn", ":bn<CR>", { noremap = true, silent = true, desc = "Next buffer" })
+keymap.set("n", "<leader>bp", ":bp<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
+keymap.set("n", "<leader>bx", ":bd<CR>", { noremap = true, silent = true, desc = "Delete buffer" })

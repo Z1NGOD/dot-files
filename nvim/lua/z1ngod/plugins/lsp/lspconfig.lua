@@ -55,6 +55,8 @@ return {
 
         opts.desc = "Restart LSP"
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+
+        keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Show function signature" })
       end,
     })
     local capabilities = cmp_nvim_lsp.default_capabilities()

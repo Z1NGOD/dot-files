@@ -18,6 +18,20 @@ return {
       end,
     })
     telescope.setup({
+      pickers = {
+        find_files = {
+          theme = "ivy",
+        },
+        live_grep = {},
+        buffers = {
+          theme = "dropdown",
+          previewer = false,
+          layout_config = {
+            width = 0.7,
+          },
+        },
+        oldfiles = {},
+      },
       defaults = {
         path_display = { "smart" },
         mappings = {
@@ -34,25 +48,10 @@ return {
     })
     telescope.load_extension("fzf")
     local keymap = vim.keymap
-    keymap.set(
-      "n",
-      "<leader>ff",
-      "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<cr>",
-      { desc = "Fuzzy find files in cwd" }
-    )
+    keymap.set("n", "<leader>ff", "<cmd>Telescope find_files <cr>", { desc = "Fuzzy find files in cwd" })
     keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set(
-      "n",
-      "<leader>fr",
-      "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-      { desc = "Find recent files" }
-    )
+    keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Find recent files" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope live_grep<cr>", { desc = "Find string under cursor in cwd" })
-    keymap.set(
-      "n",
-      "<leader>fb",
-      "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-      { desc = "Find buffers" }
-    )
+    keymap.set("n", "<leader>fb", "<cmd>Telescope buffers <cr>", { desc = "Find buffers" })
   end,
 }
