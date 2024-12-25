@@ -6,6 +6,9 @@ config.font = wezterm.font_with_fallback({
 	"JetBrainsMono Nerd Font",
 	"SF Mono",
 })
+
+config.max_fps = 120
+
 config.font_size = 18
 
 config.color_scheme = "Catppuccin Frappe"

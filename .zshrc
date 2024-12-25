@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
  eval "$(starship init zsh)"
  # ---- Eza (better ls) -----
- alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias ls="eza --color=always --level=2 -h -a --git --no-filesize --no-user --icons=always --no-time --no-permissions --long --ignore-glob=node_modules"
 
 # # ---- Zoxide (better cd) ----
  eval "$(zoxide init zsh)"
@@ -112,3 +112,9 @@ source $ZSH/oh-my-zsh.sh
  alias cd="z"
 
  eval $(thefuck --alias)
+
+ alias drs="darwin-rebuild switch --flake ~/.config/nix-darwin"
+ alias hms="home-manager switch"
+
+ export XDG_CONFIG_HOME="$HOME/.config"
+
