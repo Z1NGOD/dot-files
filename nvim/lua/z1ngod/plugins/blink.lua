@@ -70,7 +70,6 @@ return {
           name = "LSP",
           enabled = true,
           module = "blink.cmp.sources.lsp",
-          score_offset = 90,
         },
         luasnip = {
           name = "luasnip",
@@ -78,12 +77,10 @@ return {
           module = "blink.cmp.sources.luasnip",
           min_keyword_length = 2,
           fallbacks = { "snippets" },
-          score_offset = 85,
         },
         path = {
           name = "Path",
           module = "blink.cmp.sources.path",
-          score_offset = 3,
           fallbacks = { "snippets", "luasnip", "buffer" },
           opts = {
             trailing_slash = false,
@@ -99,7 +96,6 @@ return {
           name = "snippets",
           enabled = true,
           module = "blink.cmp.sources.snippets",
-          score_offset = 80,
         },
       },
     },
