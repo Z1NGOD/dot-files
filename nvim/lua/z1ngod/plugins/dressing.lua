@@ -3,6 +3,10 @@ return {
   event = "VeryLazy",
   opts = {},
   config = function()
-    require("dressing").setup({})
+    require("dressing").setup({
+      input = {
+        enabled = false,
+      },
+    })
   end,
 }

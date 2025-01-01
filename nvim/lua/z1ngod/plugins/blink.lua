@@ -6,7 +6,6 @@ return {
       version = "*",
       build = "make install_jsregexp",
     },
-    "onsails/lspkind-nvim",
     "rafamadriz/friendly-snippets",
   },
   version = "*",
@@ -39,11 +38,11 @@ return {
         draw = {
           columns = {
             { "label", "label_description", gap = 1 },
-            { "kind_icon", "kind" },
+            { "kind_icon", "kind", gap = 1 },
           },
         },
       },
-      documentation = { window = { border = "rounded" } },
+      documentation = { window = { border = "rounded" }, auto_show = true },
     },
 
     signature = { enabled = true, window = { border = "rounded" } },
@@ -64,7 +63,7 @@ return {
     },
 
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "luasnip" },
+      default = { "lsp", "path", "snippets", "buffer" },
       providers = {
         lsp = {
           name = "LSP",
@@ -96,6 +95,9 @@ return {
           name = "snippets",
           enabled = true,
           module = "blink.cmp.sources.snippets",
+          should_show_items = function(ctx)
+            return ctx.trigger.initial_kind ~= "trigger_character"
+          end,
         },
       },
     },
