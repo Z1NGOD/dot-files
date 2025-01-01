@@ -5,10 +5,7 @@ return {
   ---@type snacks.Config
   opts = {
     indent = { enabled = true },
-    input = {
-      enabled = true,
-      expand = false,
-    },
+    input = { enabled = true, expand = false },
     styles = {
       input = {
         title_pos = "left",

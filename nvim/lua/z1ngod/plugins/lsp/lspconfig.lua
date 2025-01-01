@@ -4,7 +4,7 @@ return {
   dependencies = {
     "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/lazydev.nvim", ft = "lua" },
   },
   config = function()
     local lspconfig = require("lspconfig")
