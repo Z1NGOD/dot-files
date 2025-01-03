@@ -2,7 +2,6 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
-  ---@module 'Snacks'
   ---@type snacks.Config
   opts = {
     indent = { enabled = true },
