@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.font = wezterm.font_with_fallback({
-	"Source Code Pro",
+	"GoMono Nerd Font",
 	"SF Mono",
 })
 
