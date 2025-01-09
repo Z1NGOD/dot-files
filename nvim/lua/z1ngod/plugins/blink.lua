@@ -2,6 +2,16 @@ return {
   "saghen/blink.cmp",
   dependencies = { "L3MON4D3/LuaSnip", version = "*" },
   version = "*",
+  config = function()
+    require("blink.cmp").setup({
+      enabled = function()
+        return not vim.tbl_contains({}, vim.bo.filetype)
+          and vim.bo.buftype ~= "nofile"
+          and vim.bo.buftype ~= "prompt"
+          and vim.b.completion ~= false
+      end,
+    })
+  end,
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
@@ -39,7 +49,21 @@ return {
 
     signature = { enabled = true, window = { border = "rounded" } },
 
-    snippets = { preset = "default" },
+    snippets = {
+      preset = "luasnip",
+      expand = function(snippet)
+        require("luasnip").lsp_expand(snippet)
+      end,
+      active = function(filter)
+        if filter and filter.direction then
+          return require("luasnip").jumpable(filter.direction)
+        end
+        return require("luasnip").in_snippet()
+      end,
+      jump = function(direction)
+        require("luasnip").jump(direction)
+      end,
+    },
 
     sources = {
       default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -47,6 +71,7 @@ return {
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
+          enabled = true,
         },
         lsp = {
           name = "LSP",
@@ -57,6 +82,7 @@ return {
           name = "Path",
           module = "blink.cmp.sources.path",
           fallbacks = { "snippets", "buffer" },
+          enabled = true,
           opts = {
             trailing_slash = false,
             label_trailing_slash = true,
