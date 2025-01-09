@@ -2,16 +2,6 @@ return {
   "saghen/blink.cmp",
   dependencies = { "L3MON4D3/LuaSnip", version = "*" },
   version = "*",
-  config = function()
-    require("blink.cmp").setup({
-      enabled = function()
-        return not vim.tbl_contains({}, vim.bo.filetype)
-          and vim.bo.buftype ~= "nofile"
-          and vim.bo.buftype ~= "prompt"
-          and vim.b.completion ~= false
-      end,
-    })
-  end,
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
