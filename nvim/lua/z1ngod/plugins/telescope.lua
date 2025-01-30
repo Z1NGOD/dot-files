@@ -5,6 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
+    "nvim-telescope/telescope-ui-select.nvim",
   },
   config = function()
     local telescope = require("telescope")
@@ -32,8 +33,14 @@ return {
           },
         },
       },
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown({}),
+        },
+      },
     })
     telescope.load_extension("fzf")
+    telescope.load_extension("ui-select")
     vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
     vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     vim.keymap.set("n", "<leader>fc", "<cmd>Telescope live_grep<cr>", { desc = "Find string under cursor in cwd" })
