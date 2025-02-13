@@ -17,29 +17,28 @@ return {
       callback = function(ev)
         local opts = { buffer = ev.buf, silent = true }
 
+        -- stylua: ignore start
         opts.desc = "Show LSP references"
-        keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+        keymap.set("n", "gR", function() Snacks.picker.lsp_references() end, opts)
+
+        opts.desc = "Show LSP definitions"
+        keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, opts)
+
+        opts.desc = "Show LSP implementations"
+        keymap.set("n", "gi", function() Snacks.picker.lsp_implementations() end, opts)
+
+        opts.desc = "Show LSP type definitions"
+        keymap.set("n", "gt", function() Snacks.picker.lsp_type_definitions() end, opts)
+        -- stylua: ignore end
 
         opts.desc = "Go to declaration"
         keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-
-        opts.desc = "Show LSP definitions"
-        keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-
-        opts.desc = "Show LSP implementations"
-        keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-
-        opts.desc = "Show LSP type definitions"
-        keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
         opts.desc = "See available code actions"
         keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
         opts.desc = "Smart rename"
         keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-
-        opts.desc = "Show buffer diagnostics"
-        keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
         opts.desc = "Show line diagnostics"
         keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
