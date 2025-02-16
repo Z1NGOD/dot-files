@@ -6,6 +6,7 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   lazy = false,
+  ---@diagnostic disable-next-line: undefined-doc-name
   ---@type snacks.Config
   opts = {
     indent = { enabled = true },

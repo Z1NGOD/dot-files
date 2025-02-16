@@ -7,16 +7,22 @@ return {
   opts = {
     keymap = {
       preset = "enter",
-      cmdline = {
+      ["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
+      ["<C-e>"] = { "hide" },
+      ["<C-k>"] = { "select_prev", "fallback" },
+      ["<C-j>"] = { "select_next", "fallback" },
+    },
+
+    cmdline = {
+      keymap = {
         preset = "super-tab",
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback" },
       },
-      ["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
-      ["<C-e>"] = { "hide" },
+    },
 
-      ["<C-k>"] = { "select_prev", "fallback" },
-      ["<C-j>"] = { "select_next", "fallback" },
+    fuzzy = {
+      sorts = { "exact", "score", "sort_text" },
     },
 
     appearance = {
