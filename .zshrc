@@ -102,19 +102,20 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
- eval "$(starship init zsh)"
+eval "$(starship init zsh)"
  # ---- Eza (better ls) -----
 alias ls="eza --color=always --level=2 -h -a --git --no-filesize --no-user --icons=always --no-time --no-permissions --long --ignore-glob=node_modules"
 
 # # ---- Zoxide (better cd) ----
- eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
- alias cd="z"
+alias cd="z"
 
- eval $(thefuck --alias)
+eval $(thefuck --alias)
 
- alias drs="darwin-rebuild switch --flake ~/.config/nix-darwin"
- alias hms="home-manager switch"
+alias drs="darwin-rebuild switch --flake ~/.config/nix-darwin"
+alias hms="home-manager switch"
 
- export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CONFIG_HOME="$HOME/.config"
 
+alias v="nvim"

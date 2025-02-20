@@ -9,6 +9,12 @@ return {
   ---@diagnostic disable-next-line: undefined-doc-name
   ---@type snacks.Config
   opts = {
+    lazygit = {
+      win = {
+        width = 0,
+        height = 0,
+      },
+    },
     indent = { enabled = true },
     input = { enabled = true, expand = false },
     picker = {
@@ -54,6 +60,7 @@ return {
     { "<leader>fl", function() Snacks.picker.lines({ layout = "ivy_split" }) end, desc = "Buffer Lines" },
     { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages"},
     { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps"},
+    { "<leader>lg", function() Snacks.lazygit() end, desc = "LazyGit", },
   },
   -- stylua: ignore end
 }
