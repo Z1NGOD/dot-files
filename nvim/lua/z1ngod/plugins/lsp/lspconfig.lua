@@ -71,12 +71,6 @@ return {
           capabilities = capabilities,
         })
       end,
-      ["emmet_ls"] = function()
-        lspconfig["emmet_ls"].setup({
-          capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss" },
-        })
-      end,
       ["lua_ls"] = function()
         lspconfig["lua_ls"].setup({
           capabilities = capabilities,
@@ -92,23 +86,23 @@ return {
           },
         })
       end,
-      ["vtsls"] = function()
-        lspconfig["vtsls"].setup({
-          capabilities = capabilities,
-          settings = {
-            typescript = {
-              inlayHints = {
-                parameterNames = { enabled = "literals" },
-                parameterTypes = { enabled = true },
-                variableTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                enumMemberValues = { enabled = true },
-              },
-            },
-          },
-        })
-      end,
+      -- ["vtsls"] = function()
+      --   lspconfig["vtsls"].setup({
+      --     capabilities = capabilities,
+      --     settings = {
+      --       typescript = {
+      --         inlayHints = {
+      --           parameterNames = { enabled = "literals" },
+      --           parameterTypes = { enabled = true },
+      --           variableTypes = { enabled = true },
+      --           propertyDeclarationTypes = { enabled = true },
+      --           functionLikeReturnTypes = { enabled = true },
+      --           enumMemberValues = { enabled = true },
+      --         },
+      --       },
+      --     },
+      --   })
+      -- end,
     })
   end,
 }
