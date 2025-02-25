@@ -1,0 +1,78 @@
+clear
+cd .config/nushell/
+ls
+clear
+cd
+clear
+nvim
+clear
+cd darwin
+clear
+z darwin
+clear
+zoxide 
+z .config/nix-darwin/
+clear
+cd .config/nix-darwin/
+ls
+nvim
+cd
+clear
+ps
+clear
+pwd
+clear
+who
+clear
+whereis nvim
+clear
+cd .config/nvim/
+lcear
+clear
+fuck
+clear
+c
+fuck
+clear
+nvim
+cd
+clar
+clear
+cd .config/nushell/
+nvim
+exit
+cd .config/nushell/
+nvim
+exit
+clear
+exit
+clear
+which nu<\n>
+cd .config/kitty
+ls
+nvim kitty.conf
+exit
+clear
+cd
+exit
+clear
+cd 
+cd .Trash/
+ls
+clear
+cd
+clear
+dr
+drs
+clear
+exit
+clear
+top
+clear
+cd
+exit
+nvim
+cd kitty
+exit
+ls
+exit
