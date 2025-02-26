@@ -24,6 +24,7 @@ return {
         input = {
           keys = {
             ["<C-w>"] = "close",
+            ["<c-d>"] = { "bufdelete", mode = { "n", "i" } },
           },
         },
       },
