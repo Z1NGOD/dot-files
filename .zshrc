@@ -114,7 +114,6 @@ alias cd="z"
 eval $(thefuck --alias)
 
 alias drs="darwin-rebuild switch --flake ~/.config/nix-darwin"
-alias hms="home-manager switch"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
