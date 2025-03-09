@@ -7,7 +7,7 @@ return {
       flavour = "frappe", -- latte, frappe, macchiato, mocha
       show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
       transparent_background = true, -- disables setting the background color.
-      term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+      term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
       no_italic = false, -- Force no italic
       no_bold = false, -- Force no bold
       no_underline = false, -- Force no underline
@@ -38,7 +38,5 @@ return {
     })
 
     vim.cmd.colorscheme("catppuccin")
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
   end,
 }
