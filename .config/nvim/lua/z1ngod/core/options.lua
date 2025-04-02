@@ -22,4 +22,5 @@ opt.guicursor = ""
 vim.o.laststatus = 0
 vim.o.winbar = "%f %m"
 vim.o.cmdheight = 0
+vim.o.winborder = "rounded"
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

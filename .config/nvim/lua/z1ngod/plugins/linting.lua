@@ -10,6 +10,11 @@ return {
       typescriptreact = { "eslint_d" },
       svelte = { "eslint_d" },
     }
+    lint.linters.eslint_d = {
+      cmd = "eslint_d",
+      stdin = true,
+      args = { "--stdin", "--stdin-filename", "%:p" },
+    }
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
       group = lint_augroup,
