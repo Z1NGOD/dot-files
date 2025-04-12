@@ -63,13 +63,13 @@
   },
   "show_completions_on_input": true,
   "features": {
-    "edit_prediction_provider": "supermaven"
+    "inline_completion_provider": "supermaven"
   },
   "hover_popover_enabled": false,
   "notification_panel": {
     "button": false
   },
-  "chat_panel": { "button": "never" },
+  "chat_panel": { "button": false },
   "collaboration_panel": { "button": false },
   "file_finder": {
     "modal_width": "xlarge",
