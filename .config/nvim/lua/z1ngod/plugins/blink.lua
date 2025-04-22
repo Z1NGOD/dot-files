@@ -28,10 +28,6 @@ return {
       sorts = { "exact", "score", "sort_text" },
     },
 
-    -- appearance = {
-    --   use_nvim_cmp_as_default = true,
-    -- },
-
     completion = {
       keyword = { range = "full" },
       menu = {
