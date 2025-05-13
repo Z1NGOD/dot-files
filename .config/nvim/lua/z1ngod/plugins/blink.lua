@@ -25,13 +25,13 @@ return {
     },
 
     fuzzy = {
+      implementation = "prefer_rust_with_warning",
       sorts = { "exact", "score", "sort_text" },
     },
 
     completion = {
       keyword = { range = "full" },
       menu = {
-        border = "rounded",
         draw = {
           columns = {
             { "label", "label_description", gap = 1 },
@@ -39,10 +39,10 @@ return {
           },
         },
       },
-      documentation = { window = { border = "rounded" }, auto_show = true },
+      documentation = { auto_show = true },
     },
 
-    signature = { enabled = true, window = { border = "rounded" } },
+    signature = { enabled = true },
 
     snippets = { preset = "default" },
 

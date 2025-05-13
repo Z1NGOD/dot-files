@@ -7,9 +7,6 @@ return {
     { "folke/lazydev.nvim", ft = "lua" },
   },
   config = function()
-    local lspconfig = require("lspconfig")
-    local mason_lspconfig = require("mason-lspconfig")
-    local blink = require("blink.cmp")
     local keymap = vim.keymap
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -58,51 +55,43 @@ return {
         keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Show function signature" })
       end,
     })
-    local capabilities = blink.get_lsp_capabilities()
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
 
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-      ["lua_ls"] = function()
-        lspconfig["lua_ls"].setup({
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = { "vim" },
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-            },
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = " ",
+          [vim.diagnostic.severity.WARN] = " ",
+          [vim.diagnostic.severity.HINT] = "󰠠 ",
+          [vim.diagnostic.severity.INFO] = " ",
+        },
+      },
+    })
+
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
           },
-        })
-      end,
-      ["vtsls"] = function()
-        lspconfig["vtsls"].setup({
-          capabilities = capabilities,
-          settings = {
-            typescript = {
-              inlayHints = {
-                parameterNames = { enabled = "literals" },
-                parameterTypes = { enabled = true },
-                variableTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                enumMemberValues = { enabled = true },
-              },
-            },
+          completion = {
+            callSnippet = "Replace",
           },
-        })
-      end,
+        },
+      },
+    })
+    vim.lsp.config("vtsls", {
+      settings = {
+        typescript = {
+          inlayHints = {
+            parameterNames = { enabled = "literals" },
+            parameterTypes = { enabled = true },
+            variableTypes = { enabled = true },
+            propertyDeclarationTypes = { enabled = true },
+            functionLikeReturnTypes = { enabled = true },
+            enumMemberValues = { enabled = true },
+          },
+        },
+      },
     })
   end,
 }
