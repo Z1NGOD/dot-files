@@ -2,7 +2,6 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/lazydev.nvim", ft = "lua" },
   },
@@ -65,6 +64,7 @@ return {
           [vim.diagnostic.severity.INFO] = " ",
         },
       },
+      virtual_text = true,
     })
 
     vim.lsp.config("lua_ls", {
