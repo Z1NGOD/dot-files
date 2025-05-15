@@ -2,7 +2,6 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   dependencies = {
-    "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
   },
   lazy = false,
