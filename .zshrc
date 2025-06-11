@@ -111,10 +111,20 @@ eval "$(zoxide init zsh)"
 
 alias cd="z"
 
-eval $(thefuck --alias)
-
-alias drs="darwin-rebuild switch"
+alias drs="sudo darwin-rebuild switch"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
 alias v="nvim"
+
+function cherry() {
+    git cherry-pick $1
+    GMESSAGE=$(git log -1 --pretty=%B)
+    git reset HEAD~1
+    git add .
+    git commit -n -m $GMESSAGE
+}
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
