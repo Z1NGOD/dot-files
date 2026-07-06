@@ -1,66 +1,66 @@
-return {
-  "folke/snacks.nvim",
-  priority = 1000,
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
+require("snacks").setup({
+  indent = { enabled = true },
+  input = { enabled = true, expand = false },
+  lazygit = {
+    win = {
+      width = 0,
+      height = 0,
+    },
   },
-  lazy = false,
-  ---@diagnostic disable-next-line: undefined-doc-name
-  ---@type snacks.Config
-  opts = {
-    lazygit = {
-      win = {
-        width = 0,
-        height = 0,
-      },
-    },
-    indent = { enabled = true },
-    input = { enabled = true, expand = false },
-    picker = {
-      enabled = true,
-      ui_select = true,
-      win = {
-        input = {
-          keys = {
-            ["<C-w>"] = "close",
-            ["<c-d>"] = { "bufdelete", mode = { "n", "i" } },
-          },
-        },
-      },
-      layouts = {
-        ivy = {
-          layout = {
-            position = "bottom",
-            height = 0.5,
-          },
-        },
-        ivy_split = {
-          layout = {
-            height = 0.5,
-          },
-        },
-      },
-    },
-    styles = {
+  picker = {
+    enabled = true,
+    ui_select = true,
+    win = {
       input = {
-        title_pos = "left",
-        relative = "cursor",
-        row = 0,
-        col = 0,
-        width = 30,
+        keys = {
+          ["<C-w>"] = "close",
+          ["<c-d>"] = { "bufdelete", mode = { "n", "i" } },
+        },
+      },
+    },
+    layouts = {
+      ivy = {
+        layout = {
+          position = "bottom",
+          height = 0.5,
+        },
+      },
+      ivy_split = {
+        layout = {
+          height = 0.5,
+        },
       },
     },
   },
-
-  -- stylua: ignore start
-  keys = {
-    { "<leader>ff", function() Snacks.picker.files({ layout = "ivy" }) end, desc = "Smart Find Files" },
-    { "<leader>fb", function() Snacks.picker.buffers({ layout = "select" }) end, desc = "Buffers" },
-    { "<leader>fs", function() Snacks.picker.grep() end, desc = "Grep" },
-    { "<leader>fl", function() Snacks.picker.lines({ layout = "ivy_split" }) end, desc = "Buffer Lines" },
-    { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages"},
-    { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps"},
-    { "<leader>lg", function() Snacks.lazygit() end, desc = "LazyGit", },
+  styles = {
+    input = {
+      title_pos = "left",
+      relative = "cursor",
+      row = 0,
+      col = 0,
+      width = 30,
+    },
   },
-  -- stylua: ignore end
-}
+})
+
+vim.keymap.set("n", "<leader>ff", function()
+  Snacks.picker.files({ layout = "ivy" })
+end, { desc = "Smart Find Files" })
+vim.keymap.set("n", "<leader>fb", function()
+  Snacks.picker.buffers({ layout = "select" })
+end, { desc = "Buffers" })
+vim.keymap.set("n", "<leader>fs", function()
+  Snacks.picker.grep()
+end, { desc = "Grep" })
+vim.keymap.set("n", "<leader>fl", function()
+  Snacks.picker.lines({ layout = "ivy_split" })
+end, { desc = "Buffer Lines" })
+vim.keymap.set("n", "<leader>fh", function()
+  Snacks.picker.help()
+end, { desc = "Help Pages" })
+vim.keymap.set("n", "<leader>fk", function()
+  Snacks.picker.keymaps()
+end, { desc = "Keymaps" })
+vim.keymap.set("n", "<leader>lg", function()
+  Snacks.lazygit()
+end, { desc = "LazyGit" })

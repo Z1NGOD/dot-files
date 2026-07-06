@@ -1,89 +1,58 @@
-return {
-  "saghen/blink.cmp",
-  dependencies = { "rafamadriz/friendly-snippets" },
-  version = "*",
-  ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
-  opts = {
+require("blink.cmp").setup({
+  keymap = {
+    preset = "enter",
+    ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+    ["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
+    ["<C-e>"] = { "hide" },
+    ["<C-k>"] = { "select_prev", "fallback" },
+    ["<C-j>"] = { "select_next", "fallback" },
+  },
+  cmdline = {
     keymap = {
-      preset = "enter",
-      ["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
-      ["<C-e>"] = { "hide" },
+      preset = "super-tab",
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
     },
-
-    cmdline = {
-      keymap = {
-        preset = "super-tab",
-        ["<C-k>"] = { "select_prev", "fallback" },
-        ["<C-j>"] = { "select_next", "fallback" },
-      },
-      completion = {
-        menu = { auto_show = true },
-      },
-    },
-
-    fuzzy = {
-      implementation = "prefer_rust_with_warning",
-      sorts = { "exact", "score", "sort_text" },
-    },
-
     completion = {
-      keyword = { range = "full" },
-      menu = {
-        draw = {
-          columns = {
-            { "label", "label_description", gap = 1 },
-            { "kind_icon", "kind", gap = 1 },
-          },
+      menu = { auto_show = true },
+    },
+  },
+  completion = {
+    keyword = { range = "full" },
+    menu = {
+      draw = {
+        columns = {
+          { "label", "label_description", gap = 1 },
+          { "kind_icon", "kind", gap = 1 },
         },
       },
-      documentation = { auto_show = true },
     },
-
-    signature = { enabled = true },
-
-    snippets = { preset = "default" },
-
-    sources = {
-      default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-      providers = {
-        lazydev = {
-          name = "LazyDev",
-          module = "lazydev.integrations.blink",
-          enabled = true,
-        },
-        lsp = {
-          name = "LSP",
-          enabled = true,
-          module = "blink.cmp.sources.lsp",
-        },
-        path = {
-          name = "Path",
-          module = "blink.cmp.sources.path",
-          fallbacks = { "snippets", "buffer" },
-          enabled = true,
-          opts = {
-            trailing_slash = false,
-            label_trailing_slash = true,
-            get_cwd = function(context)
-              return vim.fn.expand(("#%d:p:h"):format(context.bufnr))
-            end,
-            show_hidden_files_by_default = true,
-          },
-        },
-        buffer = { name = "Buffer", module = "blink.cmp.sources.buffer", min_keyword_length = 2 },
-        snippets = {
-          name = "snippets",
-          enabled = true,
-          module = "blink.cmp.sources.snippets",
-          should_show_items = function(ctx)
-            return ctx.trigger.initial_kind ~= "trigger_character"
+    documentation = { auto_show = true },
+  },
+  fuzzy = {
+    implementation = "lua",
+    sorts = { "exact", "score", "sort_text" },
+  },
+  signature = { enabled = true },
+  snippets = { preset = "default" },
+  sources = {
+    default = { "lsp", "path", "snippets", "buffer" },
+    providers = {
+      path = {
+        opts = {
+          get_cwd = function(context)
+            return vim.fn.expand(("#%d:p:h"):format(context.bufnr))
           end,
-          min_keyword_length = 2,
+          show_hidden_files_by_default = true,
         },
+      },
+      buffer = { min_keyword_length = 2 },
+      snippets = {
+        min_keyword_length = 2,
+        should_show_items = function(ctx)
+          return ctx.trigger.initial_kind ~= "trigger_character"
+        end,
       },
     },
   },
-}
+})

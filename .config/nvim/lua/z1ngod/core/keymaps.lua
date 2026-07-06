@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 local keymap = vim.keymap
+
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
@@ -11,8 +12,9 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
 keymap.set("n", "<C-a>", "ggVG", { desc = "Selecting everything in current buffer" })
-keymap.set("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "Opens Lazy UI" })
 keymap.set("n", "<leader>lm", "<cmd>Mason<CR>", { desc = "Opens Mason UI" })
+keymap.set("n", "<leader>ee", "<cmd>Explore<CR>", { desc = "Open file explorer" })
+keymap.set("n", "<leader>ef", "<cmd>Lexplore %:p:h<CR>", { desc = "Open explorer at current file" })
 keymap.set("v", "K", ":'<,'>m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = "Move line up" })
 keymap.set("v", "J", ":'<,'>m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = "Move line down" })
 keymap.set("i", "<C-h>", "<Left>", { noremap = true, silent = true, desc = "Move left inside insert mode" })
@@ -45,3 +47,11 @@ keymap.set("v", "<C-l>", ">gv", { noremap = true, silent = true, desc = "Move li
 keymap.set("n", "<leader>bn", ":bn<CR>", { noremap = true, silent = true, desc = "Next buffer" })
 keymap.set("n", "<leader>bp", ":bp<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
 keymap.set("n", "<leader>bx", ":bd<CR>", { noremap = true, silent = true, desc = "Delete buffer" })
+
+local session = vim.fn.stdpath("state") .. "/session.vim"
+keymap.set("n", "<leader>ws", function()
+  vim.cmd("mksession! " .. vim.fn.fnameescape(session))
+end, { desc = "Save session" })
+keymap.set("n", "<leader>wr", function()
+  vim.cmd("silent! source " .. vim.fn.fnameescape(session))
+end, { desc = "Restore session" })
